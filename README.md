@@ -5,6 +5,9 @@
 This project implements an embedded-friendly JSON serialization library
 for smart-meter gateway data. It converts structured meter data into a
 strictly defined JSON format without using any external JSON libraries.
+The library represents a typical firmware data pipeline used in smart-meter
+and w-M-Bus gateway systems:
+Measurement Data → Internal Data Structures → JSON Serialization → Backend Interface
 
 2.Platform & Language
 - Platform: STM32 (STM32CubeIDE)
