@@ -1,0 +1,37 @@
+#ifndef METER_DATA_H
+#define METER_DATA_H
+
+#include <stdint.h>
+
+#define MAX_DEVICES        4
+#define MAX_DATA_POINTS    4
+#define MAX_STR_LEN        32
+
+typedef struct {
+    char timestamp[20];        // YYYY-MM-DD HH:MM
+    char meter_datetime[20];
+    float total_value;
+    char status[8];
+} meter_data_point_t;
+
+typedef struct {
+    char media[MAX_STR_LEN];
+    char meter[MAX_STR_LEN];
+    char device_id[MAX_STR_LEN];
+    char unit[8];
+    uint8_t data_count;
+    meter_data_point_t data[MAX_DATA_POINTS];
+} device_reading_t;
+
+typedef struct {
+    char gateway_id[MAX_STR_LEN];
+    char date[11];             // YYYY-MM-DD
+    char device_type[MAX_STR_LEN];
+    uint16_t interval_minutes;
+    uint16_t total_readings;
+
+    uint8_t device_count;
+    device_reading_t devices[MAX_DEVICES];
+} gateway_data_t;
+
+#endif
